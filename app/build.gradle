@@ -27,4 +27,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':commonrv')
 //    implementation 'com.even:CommonRV:1.0.0'
+//    implementation 'com.even:commonrv:1.0.1'
 }
