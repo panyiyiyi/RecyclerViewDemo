@@ -16,7 +16,7 @@ public class ClassifyBean extends BaseListPagerBean {
     }
 
     @Override
-    public void cover(BaseViewHolder holder, BaseListPagerBean bean) {
+    public void cover(BaseViewHolder holder, int position) {
         holder.setText(R.id.tvLeft, textLeft);
     }
 

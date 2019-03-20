@@ -90,9 +90,9 @@ public abstract class BaseListPagerBean {
      * 绘制布局
      *
      * @param holder
-     * @param bean
+     * @param position
      */
-    public abstract void cover(BaseViewHolder holder, BaseListPagerBean bean);
+    public abstract void cover(BaseViewHolder holder, int position);
 
     /**
      * 获取布局ID
