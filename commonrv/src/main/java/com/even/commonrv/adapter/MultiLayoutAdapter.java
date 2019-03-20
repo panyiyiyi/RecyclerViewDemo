@@ -8,6 +8,12 @@ import java.util.List;
  * 多布局Adapter
  */
 public abstract class MultiLayoutAdapter<T> extends BaseRecyclerAdapter<T> {
+    /**
+     * layoutId的顺序必须和ViewType的顺序相同，而且从零开始
+     *
+     * @param mDataList
+     * @param layoutIds
+     */
     public MultiLayoutAdapter(List mDataList, int[] layoutIds) {
         super(mDataList, layoutIds);
     }

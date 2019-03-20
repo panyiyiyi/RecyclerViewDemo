@@ -68,8 +68,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
 
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder baseViewHolder, int position) {
-        setListener(baseViewHolder, mDataList.get(position), position);
-        covert(baseViewHolder, mDataList.get(position), position);
+        if (position < mDataList.size()) {
+            setListener(baseViewHolder, mDataList.get(position), position);
+            covert(baseViewHolder, mDataList.get(position), position);
+        }
     }
 
     @Override

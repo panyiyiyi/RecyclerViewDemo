@@ -47,7 +47,7 @@ public class StickyItemDecoration extends RecyclerView.ItemDecoration {
      */
     private int mBindDataPosition = -1;
     /**
-     * 悬浮标题Type
+     * 悬浮标题Type,必须和title的ViewType相同
      */
     private int mViewType = 0;
 

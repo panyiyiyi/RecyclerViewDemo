@@ -3,6 +3,7 @@ package com.even.recyclerviewdemo.ui;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.TextView;
 
 import com.even.commonrv.adapter.BaseViewHolder;
@@ -21,7 +22,6 @@ import java.util.ArrayList;
  * 悬浮标题
  */
 public class StickyActivity extends BaseActivity {
-    private TextView tvHaveData, tvNoData;
     private RecyclerView recyclerView;
 
     private ArrayList<StickyBean> dataLists = new ArrayList<>();
@@ -29,16 +29,14 @@ public class StickyActivity extends BaseActivity {
 
     @Override
     protected int getContentView() {
-        return R.layout.activity_multiple;
+        return R.layout.activity_recyclerview;
     }
 
     @Override
     protected void initView() {
         recyclerView = findViewById(R.id.recyclerView);
-        tvNoData = findViewById(R.id.tvNoData);
-        tvHaveData = findViewById(R.id.tvHaveData);
 
-        int[] layoutIds = new int[]{R.layout.item_no_data, R.layout.item_single, R.layout.item_sticky_title};
+        int[] layoutIds = new int[]{R.layout.item_sticky_title, R.layout.item_single};
         stickyAdapter = new MultiLayoutAdapter<StickyBean>(dataLists, layoutIds) {
             @Override
             protected int getItemType(int position) {
@@ -48,12 +46,19 @@ public class StickyActivity extends BaseActivity {
 
             @Override
             protected void coverts(BaseViewHolder holder, StickyBean item, int position, int itemType) {
+                if (itemType == 0) {
+                    holder.setText(R.id.tvTitle, item.getName());
+                    holder.itemView.setTag(true);
+                } else {
+                    holder.setText(R.id.tvSingle, item.getName());
+                    holder.itemView.setTag(false);
+                }
 
 
             }
         };
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        recyclerView.addItemDecoration(new StickyItemDecoration(2));
+        recyclerView.addItemDecoration(new StickyItemDecoration(0));
         recyclerView.setAdapter(stickyAdapter);
     }
 
@@ -63,21 +68,13 @@ public class StickyActivity extends BaseActivity {
         for (int i = 0; i < 20; i++) {
             if (i % 3 == 0) {
                 //3的倍数设置为标题
-                dataLists.add(new StickyBean("悬浮标题" + i, 1));
+                dataLists.add(new StickyBean("悬浮标题" + i, 0));
             } else {
-                dataLists.add(new StickyBean("悬浮布局" + i, 2));
+                dataLists.add(new StickyBean("悬浮布局" + i, 1));
             }
 
         }
         stickyAdapter.notifyDataSetChanged();
     }
 
-    /**
-     * 清除数据
-     */
-    private void noData() {
-        dataLists.clear();
-        dataLists.add(new StickyBean("空数据", 0));
-        stickyAdapter.notifyDataSetChanged();
-    }
 }
