@@ -11,6 +11,7 @@ import com.even.recyclerviewdemo.base.BaseActivity;
 import com.even.recyclerviewdemo.beans.ClassifyBean;
 import com.even.recyclerviewdemo.ui.MultipleActivity;
 import com.even.recyclerviewdemo.ui.SingleActivity;
+import com.even.recyclerviewdemo.ui.StickyActivity;
 
 import java.util.ArrayList;
 
@@ -50,7 +51,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(MultipleActivity.class);
             }
         });
-
+        ClassifyBean stickyLayout = new ClassifyBean("悬浮标题", "");
+        stickyLayout.setOnClickListener(new OnPagerItemClickListener() {
+            @Override
+            public void onClickListener() {
+                startActivity(StickyActivity.class);
+            }
+        });
 
         classifyLists.add(singleLayout);
         classifyLists.add(multiLayout);
