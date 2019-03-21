@@ -1,6 +1,8 @@
 # RecyclerViewDemo
 通用RecyclerView封装
 
+Maven引用：com.even:commonrv:1.0.2
+
 使用单布局使用方法
 
 
