@@ -2,7 +2,6 @@ package com.even.recyclerviewdemo.ui;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.even.commonrv.adapter.BaseViewHolder;
@@ -10,7 +9,6 @@ import com.even.commonrv.adapter.MultiLayoutAdapter;
 import com.even.commonrv.decoration.StickyItemDecoration;
 import com.even.recyclerviewdemo.R;
 import com.even.recyclerviewdemo.base.BaseActivity;
-import com.even.recyclerviewdemo.beans.MultipleBean;
 import com.even.recyclerviewdemo.beans.StickyBean;
 
 import java.util.ArrayList;
