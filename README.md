@@ -1,7 +1,11 @@
 # RecyclerViewDemo
-通用RecyclerView封装
 
-Maven引用：com.even:commonrv:1.0.2
+Gradle依赖
+        dependencies {
+                implementation 'com.even:commonrv:1.0.2'
+        }
+
+
 
 使用单布局使用方法
 
@@ -18,7 +22,7 @@ Maven引用：com.even:commonrv:1.0.2
 
 
 
-  多布局使用
+多布局使用
   
         int[] layoutIds = new int[]{R.layout.item_no_data, R.layout.item_single};
         MultiLayoutAdapter<MultipleBean> multipleAdapter = new MultiLayoutAdapter<MultipleBean>(dataList, layoutIds) {
@@ -46,7 +50,8 @@ Maven引用：com.even:commonrv:1.0.2
         recyclerView.setAdapter(multipleAdapter);
         
         
- 悬浮标题使用
+        
+悬浮标题使用
  
         int[] layoutIds = new int[]{R.layout.item_sticky_title, R.layout.item_single};
         stickyAdapter = new MultiLayoutAdapter<StickyBean>(dataLists, layoutIds) {
