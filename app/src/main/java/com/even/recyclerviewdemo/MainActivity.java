@@ -9,6 +9,7 @@ import com.even.commonrv.decoration.ItemDecorationWithMargin;
 import com.even.commonrv.impl.OnPagerItemClickListener;
 import com.even.recyclerviewdemo.base.BaseActivity;
 import com.even.recyclerviewdemo.beans.ClassifyBean;
+import com.even.recyclerviewdemo.ui.ComplicateActivity;
 import com.even.recyclerviewdemo.ui.MultipleActivity;
 import com.even.recyclerviewdemo.ui.SingleActivity;
 import com.even.recyclerviewdemo.ui.StickyActivity;
@@ -58,10 +59,18 @@ public class MainActivity extends BaseActivity {
                 startActivity(StickyActivity.class);
             }
         });
+        ClassifyBean complicateLayout = new ClassifyBean("常见复杂界面", "");
+        complicateLayout.setOnClickListener(new OnPagerItemClickListener() {
+            @Override
+            public void onClickListener() {
+                startActivity(ComplicateActivity.class);
+            }
+        });
 
         classifyLists.add(singleLayout);
         classifyLists.add(multiLayout);
         classifyLists.add(stickyLayout);
+        classifyLists.add(complicateLayout);
 
 
         BaseListPagerAdapter baseListPagerAdapter = new BaseListPagerAdapter(classifyLists);

@@ -1,13 +1,15 @@
 # RecyclerViewDemo
 
 Gradle依赖
+
+
         dependencies {
                 implementation 'com.even:commonrv:1.0.2'
         }
 
 
 
-使用单布局使用方法
+1、使用单布局使用方法
 
 
         singleAdapter = new BaseRecyclerAdapter<String>(dataLists, R.layout.item_single) {
@@ -22,8 +24,8 @@ Gradle依赖
 
 
 
-多布局使用
-  
+2、多布局使用
+
         int[] layoutIds = new int[]{R.layout.item_no_data, R.layout.item_single};
         MultiLayoutAdapter<MultipleBean> multipleAdapter = new MultiLayoutAdapter<MultipleBean>(dataList, layoutIds) {
             @Override
@@ -48,11 +50,11 @@ Gradle依赖
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.addItemDecoration(new ItemDecorationWithMargin().setMargin(DisplayUtil.dip2px(10)));
         recyclerView.setAdapter(multipleAdapter);
-        
-        
-        
-悬浮标题使用
- 
+
+
+
+3、悬浮标题使用
+
         int[] layoutIds = new int[]{R.layout.item_sticky_title, R.layout.item_single};
         stickyAdapter = new MultiLayoutAdapter<StickyBean>(dataLists, layoutIds) {
             @Override
@@ -77,9 +79,17 @@ Gradle依赖
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.addItemDecoration(new StickyItemDecoration(0));
         recyclerView.setAdapter(stickyAdapter);
-     
-        
+
+
+
+4、普通复杂界面使用
+
+
+
+
+
+
         详细使用请参照demo
-        
-        
- 
+
+
+
