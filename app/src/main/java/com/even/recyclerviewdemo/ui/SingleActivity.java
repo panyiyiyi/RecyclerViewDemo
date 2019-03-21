@@ -38,7 +38,6 @@ public class SingleActivity extends BaseActivity {
             }
         };
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.addItemDecoration(new ItemDecorationWithMargin().setMargin(DisplayUtil.dip2px(10)));
         recyclerView.setAdapter(singleAdapter);
     }
