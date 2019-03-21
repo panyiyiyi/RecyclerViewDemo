@@ -6,6 +6,9 @@ package com.even.recyclerviewdemo.beans;
  */
 public class StickyBean {
     private String name;
+    /**
+     * 0标题，1内容
+     */
     private int type;
 
     public StickyBean(String name, int type) {

@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity {
 
         classifyLists.add(singleLayout);
         classifyLists.add(multiLayout);
+        classifyLists.add(stickyLayout);
 
 
         BaseListPagerAdapter baseListPagerAdapter = new BaseListPagerAdapter(classifyLists);
