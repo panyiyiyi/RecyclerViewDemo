@@ -86,6 +86,36 @@ Gradle依赖
 
 
 
+    @Override
+    protected void initView() {
+        recyclerView = findViewById(R.id.recyclerView);
+
+        adapter = new BaseListPagerAdapter(dataLists);
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.addItemDecoration(new ItemDecorationWithMargin().setMargin(DisplayUtil.dip2px(10)));
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void initData() {
+        PhotoBean photoBean = new PhotoBean(R.mipmap.ic_launcher, "小老弟");
+        ClassifyBean classifyBean = new ClassifyBean("RecyclerDemo", "RecyclerView常用用法封装");
+        final InputBean inputBean = new InputBean();
+        inputBean.setOnClickListener(new OnPagerItemClickListener() {
+            @Override
+            public void onClickListener() {
+                shortToast(inputBean.getInputText());
+            }
+        });
+
+        dataLists.add(photoBean);
+        dataLists.add(classifyBean);
+        dataLists.add(inputBean);
+
+
+    }
+
+
 
 
 
