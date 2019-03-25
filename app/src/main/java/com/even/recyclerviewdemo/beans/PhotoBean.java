@@ -1,5 +1,6 @@
 package com.even.recyclerviewdemo.beans;
 
+import android.content.Context;
 import android.support.annotation.DrawableRes;
 
 import com.even.commonrv.adapter.BaseViewHolder;
@@ -16,7 +17,7 @@ public class PhotoBean extends BaseListPagerBean {
     }
 
     @Override
-    public void cover(BaseViewHolder holder, int position) {
+    public void cover(Context context, BaseViewHolder holder, int position) {
         holder.setText(R.id.tvName, name);
         holder.setImageResource(R.id.ivPhoto, photId);
     }

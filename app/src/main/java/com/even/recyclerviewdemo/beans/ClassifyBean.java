@@ -1,5 +1,7 @@
 package com.even.recyclerviewdemo.beans;
 
+import android.content.Context;
+
 import com.even.commonrv.adapter.BaseViewHolder;
 import com.even.commonrv.bean.BaseListPagerBean;
 import com.even.recyclerviewdemo.R;
@@ -16,7 +18,7 @@ public class ClassifyBean extends BaseListPagerBean {
     }
 
     @Override
-    public void cover(BaseViewHolder holder, int position) {
+    public void cover(Context context, BaseViewHolder holder, int position) {
         holder.setText(R.id.tvLeft, textLeft);
     }
 

@@ -1,5 +1,7 @@
 package com.even.commonrv.bean;
 
+import android.content.Context;
+
 import com.even.commonrv.adapter.BaseViewHolder;
 import com.even.commonrv.impl.OnPagerItemClickListener;
 import com.even.commonrv.impl.OnPagerLongItemClickListener;
@@ -92,7 +94,7 @@ public abstract class BaseListPagerBean {
      * @param holder
      * @param position
      */
-    public abstract void cover(BaseViewHolder holder, int position);
+    public abstract void cover(Context context, BaseViewHolder holder, int position);
 
     /**
      * 获取布局ID

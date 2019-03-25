@@ -1,5 +1,6 @@
 package com.even.recyclerviewdemo.beans;
 
+import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
@@ -25,7 +26,7 @@ public class InputBean extends BaseListPagerBean {
     }
 
     @Override
-    public void cover(BaseViewHolder holder, int position) {
+    public void cover(Context context, BaseViewHolder holder, int position) {
         EditText editText = holder.getView(R.id.edWeight);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -45,6 +46,7 @@ public class InputBean extends BaseListPagerBean {
         });
 
     }
+
 
     @Override
     public int getContentViewId() {

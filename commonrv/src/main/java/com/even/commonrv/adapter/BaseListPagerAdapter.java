@@ -73,7 +73,7 @@ public class BaseListPagerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 return false;
             }
         });
-        baseListPagerBean.cover(holder, position);
+        baseListPagerBean.cover(holder.itemView.getContext(), holder, position);
     }
 
     @Override
