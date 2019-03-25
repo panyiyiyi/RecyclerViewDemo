@@ -4,7 +4,7 @@ Gradle依赖
 
 
         dependencies {
-                implementation 'com.even:commonrv:1.0.2'
+                implementation 'com.even:commonrv:1.0.3'
         }
 
 
