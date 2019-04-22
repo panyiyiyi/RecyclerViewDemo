@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * @author by Even on 2018/11/1
- * Emial: emailtopan@163.com
+ * @author Created by Even on 2019/4/22
+ * Email: emailtopan@163.com
  */
 public class StickyItemDecoration extends RecyclerView.ItemDecoration {
     /**
@@ -40,7 +40,17 @@ public class StickyItemDecoration extends RecyclerView.ItemDecoration {
      * 布局管理器
      */
     private LinearLayoutManager mLayoutManager;
+    /**
+     * 这里的ViewType必须和Adapter中的相同，默认为0
+     */
+    private int mViewType = 0;
 
+    public StickyItemDecoration() {
+    }
+
+    public StickyItemDecoration(int mViewType) {
+        this.mViewType = mViewType;
+    }
 
     @Override
     public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
@@ -187,7 +197,7 @@ public class StickyItemDecoration extends RecyclerView.ItemDecoration {
         }
         mAdapter = recyclerView.getAdapter();
         //该方法属于Adapter中的重写Override
-        mViewHolder = mAdapter.onCreateViewHolder(recyclerView, 0);
+        mViewHolder = mAdapter.onCreateViewHolder(recyclerView, mViewType);
         //得到布局
         mStickyItemView = mViewHolder.itemView;
     }
