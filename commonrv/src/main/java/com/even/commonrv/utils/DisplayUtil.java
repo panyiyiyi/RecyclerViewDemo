@@ -42,6 +42,7 @@ public class DisplayUtil {
         float scale = Resources.getSystem().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / scale + 0.5f);
     }
+
     /**
      * 获取屏幕高度
      *
@@ -52,6 +53,18 @@ public class DisplayUtil {
         DisplayMetrics metrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
         return metrics.heightPixels;
+    }
+
+    /**
+     * 获取屏幕宽度
+     *
+     * @param activity
+     * @return
+     */
+    public static int getWindowWidth(Activity activity) {
+        DisplayMetrics metrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        return metrics.widthPixels;
     }
 
     /**
