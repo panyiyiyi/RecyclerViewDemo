@@ -4,8 +4,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.even.commonrv.adapter.BaseViewHolder;
 import com.even.commonrv.adapter.MultiLayoutAdapter;

@@ -1,5 +1,6 @@
 package com.even.commonrv.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
@@ -227,7 +228,9 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      */
     public BaseViewHolder setImageByUrl(int viewId, String url, int defaultImage) {
         ImageView view = getView(viewId);
-        Glide.with(view.getContext()).load(url).apply(new RequestOptions().placeholder(defaultImage)).into(view);
+        if (!((Activity) view.getContext()).isFinishing()) {
+            Glide.with(view.getContext()).load(url).apply(new RequestOptions().placeholder(defaultImage)).into(view);
+        }
         return this;
     }
 
