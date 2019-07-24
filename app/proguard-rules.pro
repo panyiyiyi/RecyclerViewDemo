@@ -19,3 +19,29 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontoptimize
+-ignorewarnings
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-useuniqueclassmembernames
+-ignorewarning
+-keepattributes Signature
+
+
+-obfuscationdictionary ../dic.txt
+-classobfuscationdictionary ../dic.txt
+-packageobfuscationdictionary ../dic.txt
+
+
+##################### glide#####################
+-keep class com.bumptech.glide.Glide { *; }
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+-dontwarn com.bumptech.glide.**
