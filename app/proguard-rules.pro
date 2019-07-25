@@ -14,7 +14,6 @@
 -verbose
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 -useuniqueclassmembernames
--ignorewarning
 -keepattributes Signature
 
 
