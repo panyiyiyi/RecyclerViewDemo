@@ -136,6 +136,16 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseVi
     }
 
     /**
+     * 添加数据
+     *
+     * @param mDataList
+     */
+    public void addData(List<T> mDataList) {
+        this.mDataList.addAll(mDataList);
+        notifyDataSetChanged();
+    }
+
+    /**
      * 设置点击事件
      *
      * @param holder
