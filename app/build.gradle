@@ -5,13 +5,13 @@ android {
         debug {
             keyAlias 'rvdemo'
             keyPassword '123456'
-            storeFile file('E:/gitProject/RecyclerViewDemo/rvdemo.jks')
+            storeFile file('../rvdemo.jks')
             storePassword '123456'
         }
         release {
             keyAlias 'rvdemo'
             keyPassword '123456'
-            storeFile file('E:/gitProject/RecyclerViewDemo/rvdemo.jks')
+            storeFile file('../rvdemo.jks')
             storePassword '123456'
         }
     }

@@ -19,7 +19,8 @@ public class PhotoBean extends BaseListPagerBean {
     @Override
     public void cover(Context context, BaseViewHolder holder, int position) {
         holder.setText(R.id.tvName, name);
-        holder.setImageResource(R.id.ivPhoto, photId);
+//        holder.setImageResource(R.id.ivPhoto, photId);
+        holder.setImageByUrl(R.id.ivPhoto, "https://wanandroid.com/blogimgs/60462c4c-0d82-41aa-b76d-0406c80fce31.png", photId);
     }
 
     @Override
