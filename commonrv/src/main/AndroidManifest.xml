@@ -1,2 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.even.commonrv" />
+    package="com.even.commonrv">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>
