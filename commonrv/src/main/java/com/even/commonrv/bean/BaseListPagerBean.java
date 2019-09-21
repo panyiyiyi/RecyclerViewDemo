@@ -81,7 +81,7 @@ public abstract class BaseListPagerBean {
      * 设置右边图片
      *
      * @param imageRight
-     * @return
+     * @return BaseListPagerBean
      */
     public BaseListPagerBean setImageRight(Integer imageRight) {
         this.imageRight = imageRight;
@@ -99,7 +99,7 @@ public abstract class BaseListPagerBean {
     /**
      * 获取布局ID
      *
-     * @return
+     * @return 布局Id
      */
     public abstract int getContentViewId();
 }

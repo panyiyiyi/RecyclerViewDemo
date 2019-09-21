@@ -56,7 +56,7 @@ public class StickyItemDecoration extends RecyclerView.ItemDecoration {
     public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         super.onDrawOver(c, parent, state);
         //非空判断
-        if (parent == null || parent.getAdapter() == null || parent.getAdapter().getItemCount() <= 0) {
+        if (parent.getAdapter() == null || parent.getAdapter().getItemCount() <= 0) {
             return;
         }
         if (mLayoutManager == null) {

@@ -32,7 +32,7 @@ public abstract class MultiLayoutAdapter<T> extends BaseRecyclerAdapter<T> {
      * 获取当前View的type，根据type值得不同，加载不同得布局
      *
      * @param position
-     * @return
+     * @return itemType
      */
     protected abstract int getItemType(int position);
 

@@ -39,7 +39,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param <T>
-     * @return
+     * @return BaseViewHolder
      */
     public <T extends View> T getView(int viewId) {
         View view = views.get(viewId);
@@ -57,7 +57,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      * @param parent
      * @param layoutId
      * @param <T>
-     * @return
+     * @return BaseViewHolder
      */
     public static <T extends BaseViewHolder> T getHolder(Context context, ViewGroup parent, int layoutId) {
         return (T) new BaseViewHolder(LayoutInflater.from(context).inflate(layoutId, parent, false));
@@ -68,7 +68,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param text
-     * @return
+     * @return BaseViewHolder
      */
     public BaseViewHolder setText(int viewId, String text) {
         TextView view = getView(viewId);
@@ -83,7 +83,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param textSize
-     * @return
+     * @return  BaseViewHolder
      */
     public BaseViewHolder setTextSize(int viewId, int textSize) {
         TextView view = getView(viewId);
@@ -96,7 +96,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param hintText
-     * @return
+     * @return BaseViewHolder
      */
     public BaseViewHolder setTextHint(int viewId, String hintText) {
         TextView view = getView(viewId);
@@ -118,7 +118,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param isCheck
-     * @return
+     * @return BaseViewHolder
      */
     public BaseViewHolder setViewSelected(int viewId, boolean isCheck) {
         View view = getView(viewId);
@@ -131,7 +131,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param listener
-     * @return
+     * @return BaseViewHolder
      */
     public BaseViewHolder setClickListener(int viewId, View.OnClickListener listener) {
         View view = getView(viewId);
@@ -144,7 +144,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param longClickListener
-     * @return
+     * @return BaseViewHolder
      */
     public BaseViewHolder setLongClickListener(int viewId, View.OnLongClickListener longClickListener) {
         View view = getView(viewId);
@@ -157,7 +157,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param visibility
-     * @return
+     * @return BaseViewHolder
      */
     public BaseViewHolder setViewVisibility(int viewId, int visibility) {
         View view = getView(viewId);
@@ -188,7 +188,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param resId
-     * @return
+     * @return BaseViewHolder
      */
     public BaseViewHolder setViewBgResource(int viewId, int resId) {
         View view = getView(viewId);
@@ -210,7 +210,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      *
      * @param viewId
      * @param childView
-     * @return
+     * @return BaseViewHolder
      */
     public BaseViewHolder addChildView(int viewId, View childView) {
         LinearLayout view = getView(viewId);
@@ -224,7 +224,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
      * @param viewId
      * @param url
      * @param defaultImage
-     * @return
+     * @return BaseViewHolder
      */
     public BaseViewHolder setImageByUrl(int viewId, String url, int defaultImage) {
         ImageView view = getView(viewId);

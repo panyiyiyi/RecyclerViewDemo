@@ -47,7 +47,7 @@ public class DisplayUtil {
      * 获取屏幕高度
      *
      * @param activity
-     * @return
+     * @return  屏幕宽度
      */
     public static int getWindowHeight(Activity activity) {
         DisplayMetrics metrics = new DisplayMetrics();
@@ -59,7 +59,7 @@ public class DisplayUtil {
      * 获取屏幕宽度
      *
      * @param activity
-     * @return
+     * @return  屏幕宽度
      */
     public static int getWindowWidth(Activity activity) {
         DisplayMetrics metrics = new DisplayMetrics();
@@ -71,7 +71,7 @@ public class DisplayUtil {
      * 获取状态栏的高度
      *
      * @param activity
-     * @return
+     * @return  状态栏高度
      */
     public static int getStateBarHeight(Activity activity) {
         Rect frame = new Rect();

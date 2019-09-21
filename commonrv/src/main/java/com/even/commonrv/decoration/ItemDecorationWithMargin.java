@@ -43,7 +43,7 @@ public class ItemDecorationWithMargin extends RecyclerView.ItemDecoration {
      * 设置margin值
      *
      * @param dipMarginValue
-     * @return
+     * @return ItemDecorationWithMargin
      */
     public ItemDecorationWithMargin setMargin(int dipMarginValue) {
         return setMargin(dipMarginValue, dipMarginValue);
@@ -54,7 +54,7 @@ public class ItemDecorationWithMargin extends RecyclerView.ItemDecoration {
      *
      * @param dipMarginLeftValue
      * @param dipMarginRightValue
-     * @return
+     * @return ItemDecorationWithMargin
      */
     public ItemDecorationWithMargin setMargin(int dipMarginLeftValue, int dipMarginRightValue) {
         MARGINLEFT = DisplayUtil.dip2px(dipMarginLeftValue);
