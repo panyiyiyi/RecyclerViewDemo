@@ -7,7 +7,7 @@ Gradle依赖
                 implementation 'com.even:commonrv:1.0.7'
         }
 
-
+新增：添加图片加载工具类GlideUtil，用来加载图片显示
 
 1、使用单布局使用方法
 
