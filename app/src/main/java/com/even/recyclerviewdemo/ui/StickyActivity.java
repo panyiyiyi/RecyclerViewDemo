@@ -61,7 +61,7 @@ public class StickyActivity extends BaseActivity {
     @Override
     protected void initData() {
         dataLists.clear();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 300; i++) {
             if (i % 3 == 0) {
                 //3的倍数设置为标题
                 dataLists.add(new StickyBean("悬浮标题" + i, 0));
