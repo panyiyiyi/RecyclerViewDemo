@@ -9,7 +9,7 @@ import java.util.*
 
 /**
  * @author Created by Even on 2019/2/21
- * Emial: emailtopan@163.com
+ * Email: emailtopan@163.com
  * 用来统一处理列表数据的Adapter
  */
 class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>) :

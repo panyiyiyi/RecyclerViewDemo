@@ -14,7 +14,7 @@ import kotlin.math.roundToInt
 
 /**
  * @author Created by Even on 2019/2/21
- * Emial: emailtopan@163.com
+ * Email: emailtopan@163.com
  * recyclerView 带margin分割线
  */
 class ItemDecorationWithMargin : ItemDecoration {
