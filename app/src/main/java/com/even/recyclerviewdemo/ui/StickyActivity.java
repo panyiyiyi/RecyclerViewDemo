@@ -1,10 +1,11 @@
 package com.even.recyclerviewdemo.ui;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.even.commonrv.adapter.BaseMultiLayoutRecyclerAdapter;
 import com.even.commonrv.adapter.BaseViewHolder;
-import com.even.commonrv.adapter.MultiLayoutAdapter;
+import com.even.commonrv.decoration.ItemDecorationWithMargin;
 import com.even.commonrv.decoration.StickyItemDecoration;
 import com.even.recyclerviewdemo.R;
 import com.even.recyclerviewdemo.base.BaseActivity;
@@ -21,7 +22,7 @@ public class StickyActivity extends BaseActivity {
     private RecyclerView recyclerView;
 
     private ArrayList<StickyBean> dataLists = new ArrayList<>();
-    MultiLayoutAdapter<StickyBean> stickyAdapter;
+    BaseMultiLayoutRecyclerAdapter<StickyBean> stickyAdapter;
 
     @Override
     protected int getContentView() {
@@ -33,7 +34,7 @@ public class StickyActivity extends BaseActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
         int[] layoutIds = new int[]{R.layout.item_sticky_title, R.layout.item_single};
-        stickyAdapter = new MultiLayoutAdapter<StickyBean>(dataLists, layoutIds) {
+        stickyAdapter = new BaseMultiLayoutRecyclerAdapter<StickyBean>(dataLists, layoutIds) {
             @Override
             protected int getItemType(int position) {
                 return dataLists.get(position).getType();
@@ -54,14 +55,15 @@ public class StickyActivity extends BaseActivity {
             }
         };
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        recyclerView.addItemDecoration(new StickyItemDecoration(0));
+        recyclerView.addItemDecoration(new StickyItemDecoration());
+        recyclerView.addItemDecoration(new ItemDecorationWithMargin());
         recyclerView.setAdapter(stickyAdapter);
     }
 
     @Override
     protected void initData() {
         dataLists.clear();
-        for (int i = 0; i < 300; i++) {
+        for (int i = 0; i < 30; i++) {
             if (i % 3 == 0) {
                 //3的倍数设置为标题
                 dataLists.add(new StickyBean("悬浮标题" + i, 0));

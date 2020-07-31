@@ -1,7 +1,7 @@
 package com.even.recyclerviewdemo;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.even.commonrv.adapter.BaseListPagerAdapter;
 import com.even.commonrv.bean.BaseListPagerBean;
@@ -10,6 +10,7 @@ import com.even.commonrv.impl.OnPagerItemClickListener;
 import com.even.recyclerviewdemo.base.BaseActivity;
 import com.even.recyclerviewdemo.beans.ClassifyBean;
 import com.even.recyclerviewdemo.ui.ComplicateActivity;
+import com.even.recyclerviewdemo.ui.DecorationActivity;
 import com.even.recyclerviewdemo.ui.MultipleActivity;
 import com.even.recyclerviewdemo.ui.SingleActivity;
 import com.even.recyclerviewdemo.ui.StickyActivity;
@@ -38,32 +39,39 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        final ClassifyBean singleLayout = new ClassifyBean("单布局使用", "");
+        final ClassifyBean singleLayout = new ClassifyBean("单布局使用");
         singleLayout.setOnClickListener(new OnPagerItemClickListener() {
             @Override
             public void onClickListener() {
                 startActivity(SingleActivity.class);
             }
         });
-        ClassifyBean multiLayout = new ClassifyBean("多布局使用", "");
+        ClassifyBean multiLayout = new ClassifyBean("多布局使用");
         multiLayout.setOnClickListener(new OnPagerItemClickListener() {
             @Override
             public void onClickListener() {
                 startActivity(MultipleActivity.class);
             }
         });
-        ClassifyBean stickyLayout = new ClassifyBean("悬浮标题", "");
+        ClassifyBean stickyLayout = new ClassifyBean("悬浮标题");
         stickyLayout.setOnClickListener(new OnPagerItemClickListener() {
             @Override
             public void onClickListener() {
                 startActivity(StickyActivity.class);
             }
         });
-        ClassifyBean complicateLayout = new ClassifyBean("常见复杂界面", "");
+        ClassifyBean complicateLayout = new ClassifyBean("常见复杂界面");
         complicateLayout.setOnClickListener(new OnPagerItemClickListener() {
             @Override
             public void onClickListener() {
                 startActivity(ComplicateActivity.class);
+            }
+        });
+        ClassifyBean decorationLayout = new ClassifyBean("分割线界面");
+        decorationLayout.setOnClickListener(new OnPagerItemClickListener() {
+            @Override
+            public void onClickListener() {
+                startActivity(DecorationActivity.class);
             }
         });
 
@@ -71,11 +79,13 @@ public class MainActivity extends BaseActivity {
         classifyLists.add(multiLayout);
         classifyLists.add(stickyLayout);
         classifyLists.add(complicateLayout);
+        classifyLists.add(decorationLayout);
 
 
         BaseListPagerAdapter baseListPagerAdapter = new BaseListPagerAdapter(classifyLists);
-        recyclerView.addItemDecoration(new ItemDecorationWithMargin());
+//        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new ItemDecorationWithMargin().setVerticalMargin(10).setHorizontalMargin(10).setDividerHei(1));
         recyclerView.setAdapter(baseListPagerAdapter);
     }
 }

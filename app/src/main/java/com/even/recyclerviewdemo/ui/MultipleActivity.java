@@ -1,12 +1,13 @@
 package com.even.recyclerviewdemo.ui;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.view.View;
 
+import com.even.commonrv.adapter.BaseMultiLayoutRecyclerAdapter;
 import com.even.commonrv.adapter.BaseViewHolder;
-import com.even.commonrv.adapter.MultiLayoutAdapter;
 import com.even.commonrv.decoration.ItemDecorationWithMargin;
 import com.even.commonrv.utils.DisplayUtil;
 import com.even.recyclerviewdemo.R;
@@ -24,7 +25,7 @@ public class MultipleActivity extends BaseActivity {
     private RecyclerView recyclerView;
 
     private ArrayList<MultipleBean> dataList = new ArrayList<>();
-    MultiLayoutAdapter<MultipleBean> multipleAdapter;
+    BaseMultiLayoutRecyclerAdapter<MultipleBean> multipleAdapter;
 
     @Override
     protected int getContentView() {
@@ -38,7 +39,7 @@ public class MultipleActivity extends BaseActivity {
         findViewById(R.id.tvNoData).setOnClickListener(clickListener);
 
         int[] layoutIds = new int[]{R.layout.item_no_data, R.layout.item_single};
-        multipleAdapter = new MultiLayoutAdapter<MultipleBean>(dataList, layoutIds) {
+        multipleAdapter = new BaseMultiLayoutRecyclerAdapter<MultipleBean>(dataList, layoutIds) {
             @Override
             protected int getItemType(int position) {
                 if (TextUtils.isEmpty(dataList.get(position).getValue())) {
@@ -59,7 +60,7 @@ public class MultipleActivity extends BaseActivity {
             }
         };
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        recyclerView.addItemDecoration(new ItemDecorationWithMargin().setMargin(DisplayUtil.dip2px(10)));
+        recyclerView.addItemDecoration(new ItemDecorationWithMargin().setVerticalMargin((int) DisplayUtil.INSTANCE.dip2px(10)));
         recyclerView.setAdapter(multipleAdapter);
 
     }

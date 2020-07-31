@@ -1,7 +1,7 @@
 package com.even.recyclerviewdemo.ui;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.even.commonrv.adapter.BaseRecyclerAdapter;
 import com.even.commonrv.adapter.BaseViewHolder;
@@ -38,7 +38,7 @@ public class SingleActivity extends BaseActivity {
             }
         };
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        recyclerView.addItemDecoration(new ItemDecorationWithMargin().setMargin(DisplayUtil.dip2px(10)));
+        recyclerView.addItemDecoration(new ItemDecorationWithMargin().setVerticalMargin((int) DisplayUtil.INSTANCE.dip2px(10f)));
         recyclerView.setAdapter(singleAdapter);
     }
 

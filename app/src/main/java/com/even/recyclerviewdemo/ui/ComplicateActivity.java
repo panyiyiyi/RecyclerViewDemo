@@ -1,8 +1,7 @@
 package com.even.recyclerviewdemo.ui;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.even.commonrv.adapter.BaseListPagerAdapter;
 import com.even.commonrv.bean.BaseListPagerBean;
@@ -37,14 +36,14 @@ public class ComplicateActivity extends BaseActivity {
 
         adapter = new BaseListPagerAdapter(dataLists);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        recyclerView.addItemDecoration(new ItemDecorationWithMargin().setMargin(DisplayUtil.dip2px(10)));
+        recyclerView.addItemDecoration(new ItemDecorationWithMargin().setVerticalMargin((int) DisplayUtil.INSTANCE.dip2px(10f)));
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     protected void initData() {
         PhotoBean photoBean = new PhotoBean(R.mipmap.ic_launcher, "小老弟");
-        ClassifyBean classifyBean = new ClassifyBean("RecyclerDemo", "RecyclerView常用用法封装");
+        ClassifyBean classifyBean = new ClassifyBean("RecyclerDemo");
         final InputBean inputBean = new InputBean();
         inputBean.setOnClickListener(new OnPagerItemClickListener() {
             @Override

@@ -1,7 +1,7 @@
 package com.even.recyclerviewdemo.beans;
 
 import android.content.Context;
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 
 import com.even.commonrv.adapter.BaseViewHolder;
 import com.even.commonrv.bean.BaseListPagerBean;
