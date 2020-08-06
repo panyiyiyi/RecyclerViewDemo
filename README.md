@@ -7,10 +7,10 @@ Gradle依赖
                 implementation 'com.even:commonrv:1.0.7'
         }
         dependencies {
-                implementation 'com.even:commonrv:2.0.0'
+                implementation 'com.even:commonrv:2.0.1'
         }
 
-备注：从2.0.0版本开始，项目依赖包改成Androidx的，以及使用kotlin进行开发
+备注：从2.0.0版本开始，项目依赖包改成Androidx的，以及使用kotlin进行开发(2.0.1版本改动比较大，请谨慎从旧版更新到新版，不过代码功能未改变)
 
 新增：添加图片加载工具类GlideUtil，用来加载图片显示
 
