@@ -41,7 +41,7 @@ class BaseViewHolder(itemView: View) : ViewHolder(itemView) {
     /**
      * textView设置值
      */
-    fun setText(viewId: Int, text: CharSequence): BaseViewHolder {
+    fun setText(viewId: Int, text: CharSequence?): BaseViewHolder {
         getView<TextView>(viewId)?.text = text
         return this
     }
@@ -57,7 +57,7 @@ class BaseViewHolder(itemView: View) : ViewHolder(itemView) {
     /**
      * 设置text View提示文字
      */
-    fun setTextHint(viewId: Int, hintText: String): BaseViewHolder {
+    fun setTextHint(viewId: Int, hintText: String?): BaseViewHolder {
         getView<TextView>(viewId)?.hint = hintText
         return this
     }
@@ -149,7 +149,7 @@ class BaseViewHolder(itemView: View) : ViewHolder(itemView) {
         val view = getView<ImageView>(viewId)
         if (!(view?.context as Activity).isFinishing) {
             Glide.with(view.context).load(url).apply(RequestOptions().placeholder(defaultImage))
-                .into(view)
+                    .into(view)
         }
         return this
     }
