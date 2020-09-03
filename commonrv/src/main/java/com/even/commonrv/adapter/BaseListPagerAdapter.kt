@@ -13,7 +13,7 @@ import java.util.*
  * 用来统一处理列表数据的Adapter
  */
 class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>) :
-    RecyclerView.Adapter<BaseViewHolder>() {
+        RecyclerView.Adapter<BaseViewHolder>() {
     // 用于存放ViewType
     private var mItemTypeMap: MutableMap<String, Int> = HashMap()
 
@@ -26,9 +26,16 @@ class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>) :
         }
     }
 
+    /**
+     * 刷新数据
+     */
+    fun refreshPosition(position: Int) {
+        notifyItemChanged(position)
+    }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, itemType: Int): BaseViewHolder {
         return BaseViewHolder(
-            LayoutInflater.from(viewGroup.context).inflate(itemType, viewGroup, false)
+                LayoutInflater.from(viewGroup.context).inflate(itemType, viewGroup, false)
         )
     }
 
@@ -39,7 +46,7 @@ class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>) :
         }
         holder.itemView.setOnLongClickListener(OnLongClickListener {
             val onLongClickLister =
-                baseListPagerBean.onLongClickLister
+                    baseListPagerBean.onLongClickLister
             if (onLongClickLister != null) {
                 onLongClickLister.onLongClickListener()
                 return@OnLongClickListener true

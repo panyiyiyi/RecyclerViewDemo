@@ -51,7 +51,6 @@ public class ComplicateActivity extends BaseActivity {
                 shortToast(inputBean.getInputText());
             }
         });
-
         dataLists.add(photoBean);
         dataLists.add(classifyBean);
         dataLists.add(inputBean);
