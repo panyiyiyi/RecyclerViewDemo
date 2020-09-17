@@ -14,7 +14,7 @@ import com.even.commonrv.impl.OnItemLongClickListener
  */
 abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseViewHolder> {
     //需要显示的数据
-    private var mDataList: MutableList<T>
+    var mDataList: MutableList<T>
 
     // 布局Id
     private var mLayoutIds: IntArray
@@ -46,7 +46,7 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseViewHolder> {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): BaseViewHolder {
         return BaseViewHolder(
-            LayoutInflater.from(viewGroup.context).inflate(mLayoutIds[viewType], viewGroup, false)
+                LayoutInflater.from(viewGroup.context).inflate(mLayoutIds[viewType], viewGroup, false)
         )
     }
 
