@@ -5,7 +5,6 @@ import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.even.commonrv.bean.BaseListPagerBean
-import java.util.*
 
 /**
  * @author Created by Even on 2019/2/21
@@ -14,8 +13,6 @@ import java.util.*
  */
 class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>) :
         RecyclerView.Adapter<BaseViewHolder>() {
-    // 用于存放ViewType
-    private var mItemTypeMap: MutableMap<String, Int> = HashMap()
 
     /**
      * 刷新数据
@@ -61,12 +58,7 @@ class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        val baseListPagerBean = mDataLists[position]
-        val type = mItemTypeMap[baseListPagerBean.javaClass.name]
-        return if (type != null) type else {
-            mItemTypeMap[baseListPagerBean.javaClass.name] = baseListPagerBean.contentViewId
-            baseListPagerBean.contentViewId
-        }
+        return mDataLists[position].contentViewId
     }
 
 }
