@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CommonRV</string>
+    <string name="app_little_title">我是小标题</string>
 </resources>

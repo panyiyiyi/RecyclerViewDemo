@@ -10,6 +10,7 @@ import com.even.commonrv.impl.OnPagerItemClickListener;
 import com.even.recyclerviewdemo.base.BaseActivity;
 import com.even.recyclerviewdemo.beans.ClassifyBean;
 import com.even.recyclerviewdemo.ui.ComplicateActivity;
+import com.even.recyclerviewdemo.ui.DataBindActivity;
 import com.even.recyclerviewdemo.ui.DecorationActivity;
 import com.even.recyclerviewdemo.ui.MultipleActivity;
 import com.even.recyclerviewdemo.ui.SingleActivity;
@@ -74,12 +75,20 @@ public class MainActivity extends BaseActivity {
                 startActivity(DecorationActivity.class);
             }
         });
+        ClassifyBean bindLayout = new ClassifyBean("DataBinding界面");
+        bindLayout.setOnClickListener(new OnPagerItemClickListener() {
+            @Override
+            public void onClickListener() {
+                startActivity(DataBindActivity.class);
+            }
+        });
 
         classifyLists.add(singleLayout);
         classifyLists.add(multiLayout);
         classifyLists.add(stickyLayout);
         classifyLists.add(complicateLayout);
         classifyLists.add(decorationLayout);
+        classifyLists.add(bindLayout);
 
 
         BaseListPagerAdapter baseListPagerAdapter = new BaseListPagerAdapter(classifyLists);
