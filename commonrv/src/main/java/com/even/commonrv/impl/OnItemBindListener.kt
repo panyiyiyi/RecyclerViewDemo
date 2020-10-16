@@ -8,7 +8,7 @@ import com.even.commonrv.adapter.BaseBindViewHolder
  */
 interface OnItemBindListener<T> {
     fun onItemClick(
-            holder: BaseBindViewHolder<T>,
+            holder: BaseBindViewHolder,
             item: T,
             position: Int
     )

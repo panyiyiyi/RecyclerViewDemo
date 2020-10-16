@@ -12,7 +12,7 @@ import com.even.commonrv.impl.OnItemLongBindListener
  * Created Even by 2020/10/14
  * 基于DataBinding的Adapter封装
  */
-abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder<T>> {
+abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder> {
     private var mLayoutIds: IntArray
     private var mVariables: IntArray
     var mDataLists: MutableList<T>
@@ -76,19 +76,24 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder<T>
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseBindViewHolder<T> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseBindViewHolder {
         return BaseBindViewHolder(
                 DataBindingUtil.inflate<ViewDataBinding>(LayoutInflater.from(parent.context),
                         viewType, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: BaseBindViewHolder<T>, position: Int) {
+    override fun onBindViewHolder(holder: BaseBindViewHolder, position: Int) {
         if (position < itemCount) {
-            holder.bind(mVariables[getItemType(position, mDataLists[position])], mDataLists[position])
+            bind(holder.bindView, mVariables[getItemType(position, mDataLists[position])], mDataLists[position])
             covert(holder, mDataLists[position], position)
             setListener(holder, mDataLists[position], position)
         }
+    }
+
+    private fun bind(bindView: ViewDataBinding, variable: Int, t: T) {
+        bindView.setVariable(variable, t)
+        bindView.executePendingBindings()
     }
 
     override fun getItemCount() = mDataLists.size
@@ -97,7 +102,7 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder<T>
         return mLayoutIds[getItemType(position, mDataLists[position])]
     }
 
-    private fun setListener(holder: BaseBindViewHolder<T>, item: T, position: Int) {
+    private fun setListener(holder: BaseBindViewHolder, item: T, position: Int) {
         holder.itemView.setOnClickListener {
             onItemClick?.onItemClick(holder, item, position)
         }
@@ -110,7 +115,7 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder<T>
         }
     }
 
-    open fun covert(holder: BaseBindViewHolder<T>, item: T, position: Int) {}
+    open fun covert(holder: BaseBindViewHolder, item: T, position: Int) {}
 
     /**
      *  获取布局类型

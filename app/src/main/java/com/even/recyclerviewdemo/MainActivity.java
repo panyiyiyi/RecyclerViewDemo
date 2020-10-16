@@ -11,6 +11,7 @@ import com.even.recyclerviewdemo.base.BaseActivity;
 import com.even.recyclerviewdemo.beans.ClassifyBean;
 import com.even.recyclerviewdemo.ui.ComplicateActivity;
 import com.even.recyclerviewdemo.ui.DataBindActivity;
+import com.even.recyclerviewdemo.ui.DataBindItemActivity;
 import com.even.recyclerviewdemo.ui.DecorationActivity;
 import com.even.recyclerviewdemo.ui.MultipleActivity;
 import com.even.recyclerviewdemo.ui.SingleActivity;
@@ -82,6 +83,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(DataBindActivity.class);
             }
         });
+        ClassifyBean itemBean = new ClassifyBean("DataBinding ItemBean界面");
+        itemBean.setOnClickListener(new OnPagerItemClickListener() {
+            @Override
+            public void onClickListener() {
+                startActivity(DataBindItemActivity.class);
+            }
+        });
 
         classifyLists.add(singleLayout);
         classifyLists.add(multiLayout);
@@ -89,6 +97,7 @@ public class MainActivity extends BaseActivity {
         classifyLists.add(complicateLayout);
         classifyLists.add(decorationLayout);
         classifyLists.add(bindLayout);
+        classifyLists.add(itemBean);
 
 
         BaseListPagerAdapter baseListPagerAdapter = new BaseListPagerAdapter(classifyLists);

@@ -37,7 +37,7 @@ class DataBindActivity : BaseActivity() {
             }
         }
         mAdapter.onItemClick = object : OnItemBindListener<BindBean> {
-            override fun onItemClick(holder: BaseBindViewHolder<BindBean>, item: BindBean, position: Int) {
+            override fun onItemClick(holder: BaseBindViewHolder, item: BindBean, position: Int) {
                 Toast.makeText(this@DataBindActivity, item.title, Toast.LENGTH_LONG).show()
             }
         }

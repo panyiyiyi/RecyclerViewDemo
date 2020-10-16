@@ -9,7 +9,7 @@ import com.even.commonrv.adapter.BaseBindViewHolder
  */
 interface OnItemLongBindListener<T> {
     fun onItemLongClick(
-            holder: BaseBindViewHolder<T>,
+            holder: BaseBindViewHolder,
             item: T,
             position: Int
     )
