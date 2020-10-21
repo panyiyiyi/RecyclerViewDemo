@@ -13,12 +13,32 @@ import com.even.commonrv.bean.BaseBindPagerBean
  * 使用databinding实现item备案
  */
 class BaseBindPagerAdapter(private val mItemLists: MutableList<BaseBindPagerBean>) : RecyclerView.Adapter<BaseBindViewHolder>() {
+    /**
+     * 刷新Item
+     */
+    fun refreshItem(item: BaseBindPagerBean) {
+        if (mItemLists.contains(item)) {
+            notifyItemChanged(mItemLists.indexOf(item))
+        }
+    }
+
+    /**
+     * 刷新数据
+     */
+    fun refreshPosition(position: Int) {
+        notifyItemChanged(position)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseBindViewHolder {
         return BaseBindViewHolder(DataBindingUtil.inflate<ViewDataBinding>(LayoutInflater.from(parent.context), viewType, parent, false))
     }
 
     override fun onBindViewHolder(holder: BaseBindViewHolder, position: Int) {
+        val bean = mItemLists[position]
         mItemLists[position].cover(holder.bindView)
+        if (bean.variable != -1 && bean.getItemData() != null) {
+            bind(holder.bindView, bean)
+        }
         holder.itemView.setOnClickListener {
             mItemLists[position].onClickListener?.onClickListener()
         }
@@ -31,6 +51,11 @@ class BaseBindPagerAdapter(private val mItemLists: MutableList<BaseBindPagerBean
             }
             false
         })
+    }
+
+    private fun bind(bindView: ViewDataBinding, bean: BaseBindPagerBean) {
+        bindView.setVariable(bean.variable, bean.getItemData())
+        bindView.executePendingBindings()
     }
 
     override fun getItemCount(): Int = mItemLists.size

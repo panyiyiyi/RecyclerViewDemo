@@ -85,14 +85,18 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder> {
 
     override fun onBindViewHolder(holder: BaseBindViewHolder, position: Int) {
         if (position < itemCount) {
-            bind(holder.bindView, mVariables[getItemType(position, mDataLists[position])], mDataLists[position])
+            bind(holder.bindView, position, mVariables[getItemType(position, mDataLists[position])], mDataLists[position])
             covert(holder, mDataLists[position], position)
             setListener(holder, mDataLists[position], position)
         }
     }
 
-    private fun bind(bindView: ViewDataBinding, variable: Int, t: T) {
-        bindView.setVariable(variable, t)
+    private fun bind(bindView: ViewDataBinding, position: Int, variable: Int, t: T) {
+        if (getItemType(position, mDataLists[position]) == getNoDataType()) {
+            bindView.setVariable(variable, getNoDataBean())
+        } else {
+            bindView.setVariable(variable, t)
+        }
         bindView.executePendingBindings()
     }
 
@@ -114,6 +118,12 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder> {
             return@setOnLongClickListener false
         }
     }
+
+    //设置无数据对象
+    open fun getNoDataBean(): Any = ""
+
+    //设置无数据布局类型
+    open fun getNoDataType(): Int = -1
 
     open fun covert(holder: BaseBindViewHolder, item: T, position: Int) {}
 
