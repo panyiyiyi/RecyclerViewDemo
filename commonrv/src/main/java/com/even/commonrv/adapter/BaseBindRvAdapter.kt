@@ -86,7 +86,7 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder> {
     override fun onBindViewHolder(holder: BaseBindViewHolder, position: Int) {
         if (position < itemCount) {
             bind(holder.bindView, position, mVariables[getItemType(position, mDataLists[position])], mDataLists[position])
-            covert(holder, mDataLists[position], position)
+            covert(holder.bindView, mDataLists[position], position)
             setListener(holder, mDataLists[position], position)
         }
     }
@@ -125,7 +125,7 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder> {
     //设置无数据布局类型
     open fun getNoDataType(): Int = -1
 
-    open fun covert(holder: BaseBindViewHolder, item: T, position: Int) {}
+    open fun covert(bindView: ViewDataBinding, item: T, position: Int) {}
 
     /**
      *  获取布局类型

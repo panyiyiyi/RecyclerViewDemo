@@ -7,12 +7,13 @@ Gradle依赖
                 implementation 'com.even:commonrv:1.0.7'
         }
         dependencies {
-                implementation 'com.even:commonrv:2.0.1'
+                implementation 'com.even:commonrv:2.1.3'
         }
 
 备注：从2.0.0版本开始，项目依赖包改成Androidx的，以及使用kotlin进行开发(2.0.1版本改动比较大，请谨慎从旧版更新到新版，不过代码功能未改变)
 
-新增：添加图片加载工具类GlideUtil，用来加载图片显示
+新增：新增通过DataBinding直接绑定View功能，分别的是对应同一数据源的BaseBindRvAdapter,以及对应不同数据源的ItemBean的BaseBindPagerAdapter和BaseBindPagerBean对象.
+如果还是需要手动设置的，可以重写Covert方法，在ItemBean中不需要DataBinding的则可以设置variable=-1，以及getItemData=null,具体用法请参考demo
 
 1、使用单布局使用方法
 
