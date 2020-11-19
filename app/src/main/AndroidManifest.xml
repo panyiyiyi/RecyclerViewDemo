@@ -44,6 +44,10 @@
             android:name=".ui.DataBindItemActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ConcatActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
