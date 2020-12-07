@@ -47,9 +47,23 @@ publish {
     userOrg = 'evenpan'//bintray.com用户名
     groupId = 'com.even'//jcenter上的路径
     artifactId = 'commonrv'//项目名称
-    publishVersion = '2.1.3'//版本号
+    publishVersion = '2.1.4'//版本号
     desc = 'recyclerView通用封装'//描述，不重要
     website = 'https://github.com/panyiyiyi/RecyclerViewDemo'
 //网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
     repoName = 'maven'//bintray中创建的repo名称
 }
+
+//apply plugin: 'maven'
+//
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            pom.groupId = 'com.even'
+//            pom.artifactId = "commonrv"
+//            pom.version = "2.1.4"
+//            pom.packaging = 'aar'
+//            repository(url: "file:///D:/androidMaven/")
+//        }
+//    }
+//}
