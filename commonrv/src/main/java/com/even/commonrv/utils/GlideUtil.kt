@@ -20,27 +20,27 @@ object GlideUtil {
      * 加载网络
      */
     fun loadNet(
-        target: ImageView,
-        url: String,
-        options: RequestOptions,
-        listener: RequestListener<Drawable?>
+            target: ImageView,
+            url: String,
+            options: RequestOptions,
+            listener: RequestListener<Drawable?>
     ) {
-        if (checkIsDestroyedActivity(target.context as Activity)) {
+        if (checkIsDestroyedActivity(target.context)) {
             return
         }
         getRequestManager(target.context).load(url).listener(listener).apply(options)
-            .into(target)
+                .into(target)
     }
 
     /**
      * 加载网络
      */
     fun loadNet(
-        target: ImageView,
-        url: String,
-        options: RequestOptions
+            target: ImageView,
+            url: String,
+            options: RequestOptions
     ) {
-        if (checkIsDestroyedActivity(target.context as Activity)) {
+        if (checkIsDestroyedActivity(target.context)) {
             return
         }
         getRequestManager(target.context).load(url).apply(options).into(target)
@@ -50,7 +50,7 @@ object GlideUtil {
      * 加载网络
      */
     fun loadNet(target: ImageView, url: String?) {
-        if (checkIsDestroyedActivity(target.context as Activity)) {
+        if (checkIsDestroyedActivity(target.context)) {
             return
         }
         getRequestManager(target.context).load(url).into(target)
@@ -60,7 +60,7 @@ object GlideUtil {
      * 加载本地资源
      */
     fun loadResource(target: ImageView, resId: Int) {
-        if (checkIsDestroyedActivity(target.context as Activity)) {
+        if (checkIsDestroyedActivity(target.context)) {
             return
         }
         getRequestManager(target.context).load(resId).into(target)
@@ -70,27 +70,27 @@ object GlideUtil {
      * 加载文件,带加载监听
      */
     fun loadFile(
-        target: ImageView,
-        file: File,
-        options: RequestOptions,
-        listener: RequestListener<Drawable?>
+            target: ImageView,
+            file: File,
+            options: RequestOptions,
+            listener: RequestListener<Drawable?>
     ) {
-        if (checkIsDestroyedActivity(target.context as Activity)) {
+        if (checkIsDestroyedActivity(target.context)) {
             return
         }
         getRequestManager(target.context).load(file).listener(listener)
-            .apply(options).into(target)
+                .apply(options).into(target)
     }
 
     /**
      * 加载文件
      */
     fun loadFile(
-        target: ImageView,
-        file: File,
-        options: RequestOptions
+            target: ImageView,
+            file: File,
+            options: RequestOptions
     ) {
-        if (checkIsDestroyedActivity(target.context as Activity)) {
+        if (checkIsDestroyedActivity(target.context)) {
             return
         }
         getRequestManager(target.context).load(file).apply(options).into(target)
@@ -100,7 +100,7 @@ object GlideUtil {
      * 加载本地文件
      */
     fun loadFile(target: ImageView, file: File) {
-        if (checkIsDestroyedActivity(target.context as Activity)) {
+        if (checkIsDestroyedActivity(target.context)) {
             return
         }
         getRequestManager(target.context).load(file).into(target)
@@ -124,8 +124,14 @@ object GlideUtil {
         return Glide.with(context)
     }
 
-    /**判断Activity是否已回收，防止You cannot start a load for a destroyed activity错误*/
-    fun checkIsDestroyedActivity(activity: Activity): Boolean {
-        return activity.isFinishing
+    /**
+     * 判断Activity是否已回收，防止You cannot start a load for a destroyed activity错误
+     *  @return false 当前activity没有被注销
+     */
+    fun checkIsDestroyedActivity(context: Context): Boolean {
+        if (context is Activity) {
+            return context.isFinishing
+        }
+        return false
     }
 }

@@ -63,10 +63,25 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder> {
         notifyItemChanged(position)
     }
 
+    //刷新指定的item
+    fun refreshItem(item: T) {
+        if (mDataLists.contains(item)) {
+            refreshItem(mDataLists.indexOf(item))
+        }
+    }
+
     //更新集合数据
     fun refreshLists(dataLists: MutableList<T>) {
         this.mDataLists = dataLists
         notifyDataSetChanged()
+    }
+
+    //更新指定Item
+    fun updateItem(item: T, position: Int) {
+        if (position < mDataLists.size) {
+            mDataLists[position] = item
+            notifyItemChanged(position)
+        }
     }
 
     //添加集合数据
@@ -129,7 +144,7 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder> {
 
     /**
      *  获取布局类型
-     *  @return  与布局集合的下标对应
+     *  @return  与布局集合的下标对应(单布局直接返回0即可)
      */
     abstract fun getItemType(position: Int, item: T): Int
 }

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.graphics.Bitmap
 import android.util.SparseArray
 import android.util.TypedValue
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.View.OnLongClickListener
 import android.view.ViewGroup
@@ -147,7 +148,12 @@ class BaseViewHolder(itemView: View) : ViewHolder(itemView) {
      */
     fun setImageByUrl(viewId: Int, url: String, defaultImage: Int): BaseViewHolder {
         val view = getView<ImageView>(viewId)
-        if (!(view?.context as Activity).isFinishing) {
+        if (view?.context is Activity) {
+            if (!(view.context as Activity).isFinishing) {
+                Glide.with(view.context as Activity).load(url).apply(RequestOptions().placeholder(defaultImage))
+                        .into(view)
+            }
+        } else if (view?.context is ContextThemeWrapper) {
             Glide.with(view.context).load(url).apply(RequestOptions().placeholder(defaultImage))
                     .into(view)
         }
@@ -159,9 +165,14 @@ class BaseViewHolder(itemView: View) : ViewHolder(itemView) {
      */
     fun setImageByUrl(viewId: Int, url: String): BaseViewHolder {
         val view = getView<ImageView>(viewId)
-        if (!(view?.context as Activity).isFinishing) {
+        if (view?.context is Activity) {
+            if (!(view.context as Activity).isFinishing) {
+                Glide.with(view.context as Activity).load(url).into(view)
+            }
+        } else if (view?.context is ContextThemeWrapper) {
             Glide.with(view.context).load(url).into(view)
         }
+
         return this
     }
 }

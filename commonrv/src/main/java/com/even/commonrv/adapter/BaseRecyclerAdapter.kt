@@ -92,6 +92,13 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseViewHolder> {
         notifyItemChanged(position)
     }
 
+    fun refreshItem(data: T) {
+        if (mDataList.contains(data)) {
+            refreshItem(mDataList.indexOf(data))
+        }
+    }
+
+
     /**
      * 更新集合数据
      */
