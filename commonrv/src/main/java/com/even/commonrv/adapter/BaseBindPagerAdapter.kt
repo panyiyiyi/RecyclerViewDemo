@@ -29,6 +29,20 @@ class BaseBindPagerAdapter(private val mItemLists: MutableList<BaseBindPagerBean
         notifyItemChanged(position)
     }
 
+    //移除指定下标Item
+    fun removeItem(position: Int) {
+        this.mItemLists.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, itemCount)
+    }
+
+    //移除指定Item
+    fun removeItem(item: BaseBindPagerBean) {
+        if (mItemLists.contains(item)) {
+            removeItem(mItemLists.indexOf(item))
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseBindViewHolder {
         return BaseBindViewHolder(DataBindingUtil.inflate<ViewDataBinding>(LayoutInflater.from(parent.context), viewType, parent, false))
     }
