@@ -12,7 +12,7 @@ import com.even.commonrv.bean.BaseBindPagerBean
  * Created Even by 2020/10/15
  * 使用databinding实现item备案
  */
-class BaseBindPagerAdapter(private val mItemLists: MutableList<BaseBindPagerBean>) : RecyclerView.Adapter<BaseBindViewHolder>() {
+open class BaseBindPagerAdapter(private val mItemLists: MutableList<BaseBindPagerBean>) : RecyclerView.Adapter<BaseBindViewHolder>() {
     /**
      * 刷新Item
      */

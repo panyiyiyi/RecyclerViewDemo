@@ -18,7 +18,7 @@ import com.bumptech.glide.request.RequestOptions
  * @author Created by Even on 2019/2/21
  * Email: emailtopan@163.com
  */
-class BaseViewHolder(itemView: View) : ViewHolder(itemView) {
+open class BaseViewHolder(itemView: View) : ViewHolder(itemView) {
 
     /**
      * 存放View

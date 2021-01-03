@@ -11,7 +11,7 @@ import com.even.commonrv.bean.BaseListPagerBean
  * Email: emailtopan@163.com
  * 用来统一处理列表数据的Adapter
  */
-class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>) :
+open class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>) :
         RecyclerView.Adapter<BaseViewHolder>() {
 
     /**
