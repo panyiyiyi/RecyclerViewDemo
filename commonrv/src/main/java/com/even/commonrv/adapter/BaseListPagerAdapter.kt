@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.even.commonrv.bean.BaseBindPagerBean
 import com.even.commonrv.bean.BaseListPagerBean
 
 /**
@@ -11,7 +12,7 @@ import com.even.commonrv.bean.BaseListPagerBean
  * Email: emailtopan@163.com
  * 用来统一处理列表数据的Adapter
  */
-open class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>) :
+open class BaseListPagerAdapter(private val mDataLists: MutableList<BaseListPagerBean>) :
         RecyclerView.Adapter<BaseViewHolder>() {
 
     /**
@@ -28,6 +29,20 @@ open class BaseListPagerAdapter(private var mDataLists: List<BaseListPagerBean>)
      */
     fun refreshPosition(position: Int) {
         notifyItemChanged(position)
+    }
+
+    //移除指定下标Item
+    fun removeItem(position: Int) {
+        this.mDataLists.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, itemCount)
+    }
+
+    //移除指定Item
+    fun removeItem(item: BaseBindPagerBean) {
+        if (mDataLists.contains(item)) {
+            removeItem(mDataLists.indexOf(item))
+        }
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, itemType: Int): BaseViewHolder {
