@@ -108,7 +108,7 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder> {
 
     private fun bind(bindView: ViewDataBinding, position: Int, variable: Int, t: T) {
         if (getItemType(position, mDataLists[position]) == getNoDataType()) {
-            bindView.setVariable(variable, getNoDataBean())
+            bindView.setVariable(variable, getNoDataBean(mDataLists[position]))
         } else {
             bindView.setVariable(variable, t)
         }
@@ -135,7 +135,7 @@ abstract class BaseBindRvAdapter<T> : RecyclerView.Adapter<BaseBindViewHolder> {
     }
 
     //设置无数据对象
-    open fun getNoDataBean(): Any = ""
+    open fun getNoDataBean(item: T): Any = ""
 
     //设置无数据布局类型
     open fun getNoDataType(): Int = -1
