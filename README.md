@@ -7,10 +7,12 @@ Gradle依赖
                 implementation 'com.even:commonrv:1.0.7'
         }
         dependencies {
-                implementation 'com.even:commonrv:2.1.3'
+                implementation 'com.even:commonrv:2.2.0'
         }
 
 备注：从2.0.0版本开始，项目依赖包改成Androidx的，以及使用kotlin进行开发(2.0.1版本改动比较大，请谨慎从旧版更新到新版，不过代码功能未改变)
+
+更新信息：BaseBindRvAdapter 中 getNoDataBean中添加返回当前Item数据，用于灵活配置当前方法返回数据，以级修改GlideUtil中因传入Dialog context引起的闪退问题"
 
 新增：新增通过DataBinding直接绑定View功能，分别的是对应同一数据源的BaseBindRvAdapter,以及对应不同数据源的ItemBean的BaseBindPagerAdapter和BaseBindPagerBean对象.
 如果还是需要手动设置的，可以重写Covert方法，在ItemBean中不需要DataBinding的则可以设置variable=-1，以及getItemData=null,具体用法请参考demo
