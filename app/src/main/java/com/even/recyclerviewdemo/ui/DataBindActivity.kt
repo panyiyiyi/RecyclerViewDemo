@@ -1,6 +1,7 @@
 package com.even.recyclerviewdemo.ui
 
 import android.widget.Toast
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.even.commonrv.adapter.BaseBindRvAdapter
 import com.even.commonrv.adapter.BaseBindViewHolder
@@ -24,9 +25,9 @@ class DataBindActivity : BaseActivity() {
         }
 
         val mAdapter = object : BaseBindRvAdapter<BindBean>(
-                lists,
-                intArrayOf(R.layout.item_bind_show, R.layout.item_bind_text2),
-                intArrayOf(BR.bean, BR.bind2)
+            lists,
+            intArrayOf(R.layout.item_bind_show, R.layout.item_bind_text2),
+            intArrayOf(BR.bean, BR.bind2)
         ) {
             override fun getItemType(position: Int, item: BindBean): Int {
                 return if (position % 5 == 0) {
@@ -34,6 +35,11 @@ class DataBindActivity : BaseActivity() {
                 } else {
                     0
                 }
+            }
+
+            override fun covert(holder: BaseBindViewHolder, item: BindBean, position: Int) {
+                holder.setText(R.id.tvTitle, "这还少${item.title}")
+
             }
         }
         mAdapter.onItemClick = object : OnItemBindListener<BindBean> {

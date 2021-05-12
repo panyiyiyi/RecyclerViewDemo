@@ -7,5 +7,5 @@ import androidx.recyclerview.widget.RecyclerView
  * Created Even by 2020/10/14
  * 使用databinding抽象ViewHolder
  */
-class BaseBindViewHolder(val bindView: ViewDataBinding) : RecyclerView.ViewHolder(bindView.root) {
+class BaseBindViewHolder(val bindView: ViewDataBinding) : BaseViewHolder(bindView.root) {
 }
