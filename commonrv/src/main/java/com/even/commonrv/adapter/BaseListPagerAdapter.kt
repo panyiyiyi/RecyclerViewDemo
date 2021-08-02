@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.even.commonrv.bean.BaseBindPagerBean
 import com.even.commonrv.bean.BaseListPagerBean
 
 /**
@@ -13,7 +12,7 @@ import com.even.commonrv.bean.BaseListPagerBean
  * 用来统一处理列表数据的Adapter
  */
 open class BaseListPagerAdapter(private val mDataLists: MutableList<BaseListPagerBean>) :
-        RecyclerView.Adapter<BaseViewHolder>() {
+    RecyclerView.Adapter<BaseViewHolder>() {
 
     /**
      * 刷新数据
@@ -38,16 +37,9 @@ open class BaseListPagerAdapter(private val mDataLists: MutableList<BaseListPage
         notifyItemRangeChanged(position, itemCount)
     }
 
-    //移除指定Item
-    fun removeItem(item: BaseBindPagerBean) {
-        if (mDataLists.contains(item)) {
-            removeItem(mDataLists.indexOf(item))
-        }
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, itemType: Int): BaseViewHolder {
         return BaseViewHolder(
-                LayoutInflater.from(viewGroup.context).inflate(itemType, viewGroup, false)
+            LayoutInflater.from(viewGroup.context).inflate(itemType, viewGroup, false)
         )
     }
 
@@ -58,7 +50,7 @@ open class BaseListPagerAdapter(private val mDataLists: MutableList<BaseListPage
         }
         holder.itemView.setOnLongClickListener(OnLongClickListener {
             val onLongClickLister =
-                    baseListPagerBean.onLongClickLister
+                baseListPagerBean.onLongClickLister
             if (onLongClickLister != null) {
                 onLongClickLister.onLongClickListener()
                 return@OnLongClickListener true
