@@ -9,5 +9,4 @@
 .externalNativeBuild
 /gradle/
 /jcenter
-/gradle
-/jcenter
+.idea
