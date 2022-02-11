@@ -50,21 +50,7 @@ repositories {
 
 ext {
     PUBLISH_ARTIFACT_ID = "commonrv" //你的artifact_id，一般是module的名字
-    PUBLISH_VERSION = "3.0.0"  //发布版本号
+    PUBLISH_VERSION = "3.0.2"  //发布版本号
     PUBLISH_GROUP_ID = 'io.github.panyiyiyi'  //你的sonatype的group_id
 }
 apply from: '../publish-mavencentral.gradle'
-
-//apply plugin: 'maven'
-//
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            pom.groupId = 'com.even'
-//            pom.artifactId = "commonrv"
-//            pom.version = "2.1.7"
-//            pom.packaging = 'aar'
-//            repository(url: "file:///D:/androidMaven/")
-//        }
-//    }
-//}

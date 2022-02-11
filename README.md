@@ -3,7 +3,7 @@
 Gradle依赖
 
         dependencies {
-                implementation 'io.github.panyiyiyi:commonrv:3.0.0'
+                implementation 'io.github.panyiyiyi:commonrv:3.0.2'
         }
         dependencies {
                 implementation 'com.even:commonrv:1.0.7'
