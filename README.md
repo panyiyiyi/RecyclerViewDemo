@@ -2,7 +2,9 @@
 
 Gradle依赖
 
-
+        dependencies {
+                implementation 'io.github.panyiyiyi:commonrv:3.0.0'
+        }
         dependencies {
                 implementation 'com.even:commonrv:1.0.7'
         }
@@ -10,7 +12,8 @@ Gradle依赖
                 implementation 'com.even:commonrv:2.2.0'
         }
 
-备注：从2.0.0版本开始，项目依赖包改成Androidx的，以及使用kotlin进行开发(2.0.1版本改动比较大，请谨慎从旧版更新到新版，不过代码功能未改变)
+备注：从3.0.0版本开始，讲arr移植到maven central中了。
+从2.0.0版本开始，项目依赖包改成Androidx的，以及使用kotlin进行开发(2.0.1版本改动比较大，请谨慎从旧版更新到新版，不过代码功能未改变)
 
 更新信息：BaseBindRvAdapter 中 getNoDataBean中添加返回当前Item数据，用于灵活配置当前方法返回数据，以级修改GlideUtil中因传入Dialog context引起的闪退问题"
 
