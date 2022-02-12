@@ -45,7 +45,7 @@ publishing {
             pom {
                 //第 3 处
                 name = PUBLISH_ARTIFACT_ID
-                description = '通用封装' //项目描述
+                description = 'RecyclerView基础封装，集合databing实现数据绑定，以及通过itemBean实现页面功能的开发，即所有页面都可以通过RecyerView来开啊' //项目描述
                 // If your project has a dedicated site, use its URL here
                 url = 'https://github.com/panyiyiyi/RecyclerViewDemo' //项目github链接
                 licenses {
