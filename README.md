@@ -1,5 +1,5 @@
 # RecyclerViewDemo
-[![Maven](https://img.shields.io/badge/%20Maven%20-3.0.2-5bc0de.svg)](https://search.maven.org/artifact/io.github.panyiyiyi/commonrv/3.0.2/aar)
+[![Maven](https://maven-badges.herokuapp.com/maven-central/io.github.panyiyiyi/commonrv/badge.svg)](https://search.maven.org/artifact/io.github.panyiyiyi/commonrv/3.0.2/aar)
 
 Gradle依赖
 
